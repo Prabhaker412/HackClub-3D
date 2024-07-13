@@ -1,0 +1,124 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.carousel {
+    display: flex;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.product {
+    width: 300px;
+    height: 400px;
+    margin: 0 20px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    animation: rotate 20s infinite linear;
+}
+
+.product-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.product:hover .product-inner {
+    transform: rotateY(180deg);
+}
+
+.product-front, .product-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.product-front {
+    background-color: white;
+}
+
+.product-back {
+    background-color: #2c3e50;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.product-front img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.product-front h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-front p {
+    color: #666;
+    text-align: center;
+}
+
+.product-back h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.product-back ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.product-back li {
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+}
+
+@keyframes rotate {
+    from { transform: rotateY(0deg) translateZ(300px) rotateY(0deg); }
+    to { transform: rotateY(360deg) translateZ(300px) rotateY(-360deg); }
+}
+
+.product:nth-child(1) { animation-delay: -6.66s; }
+.product:nth-child(2) { animation-delay: -13.33s; }
